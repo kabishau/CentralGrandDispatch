@@ -55,16 +55,22 @@
                                     <constraint firstAttribute="height" constant="316" id="Zxp-Wa-tTd"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rIo-oi-rAH">
+                                <rect key="frame" x="150" y="212" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rIo-oi-rAH" firstAttribute="centerX" secondItem="Pz2-Gv-NeV" secondAttribute="centerX" id="9la-Iz-DSU"/>
                             <constraint firstItem="Pz2-Gv-NeV" firstAttribute="top" secondItem="TaG-LL-9mO" secondAttribute="top" id="a0R-mQ-DNr"/>
                             <constraint firstItem="Pz2-Gv-NeV" firstAttribute="centerX" secondItem="TaG-LL-9mO" secondAttribute="centerX" id="bwB-ll-ymb"/>
+                            <constraint firstItem="rIo-oi-rAH" firstAttribute="centerY" secondItem="Pz2-Gv-NeV" secondAttribute="centerY" id="vqX-qj-Xft"/>
                             <constraint firstItem="Pz2-Gv-NeV" firstAttribute="width" secondItem="TaG-LL-9mO" secondAttribute="width" id="yyU-EB-A3p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TaG-LL-9mO"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="rIo-oi-rAH" id="2sx-rA-dXy"/>
                         <outlet property="imageView" destination="Pz2-Gv-NeV" id="pwA-oB-kmg"/>
                     </connections>
                 </viewController>

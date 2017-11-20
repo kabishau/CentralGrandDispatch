@@ -12,6 +12,7 @@ class SecondViewController: UIViewController {
     
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     fileprivate var imageURL: URL?
     fileprivate var image: UIImage? {
@@ -19,6 +20,8 @@ class SecondViewController: UIViewController {
             return imageView.image
         }
         set {
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
             imageView.image = newValue
             imageView.sizeToFit()
         }
@@ -32,6 +35,8 @@ class SecondViewController: UIViewController {
     }
     
     fileprivate func fetchImage() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         imageURL = URL(string: "http://www.dreamline.com/media/images/72_WM/Unidoor_SD12_28D_SB_72_WM.jpg")
         guard let url = imageURL, let imageData = try? Data(contentsOf: url) else { return }
         self.image = UIImage(data: imageData)
