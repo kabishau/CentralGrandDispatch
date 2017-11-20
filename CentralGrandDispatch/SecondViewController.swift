@@ -38,9 +38,16 @@ class SecondViewController: UIViewController {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         imageURL = URL(string: "http://www.dreamline.com/media/images/72_WM/Unidoor_SD12_28D_SB_72_WM.jpg")
-        guard let url = imageURL, let imageData = try? Data(contentsOf: url) else { return }
-        self.image = UIImage(data: imageData)
-
+        
+        // removing process of loading image and updating interface from main queue to another
+        let queue = DispatchQueue.global(qos: .utility)
+        queue.async {
+            guard let url = self.imageURL, let imageData = try? Data(contentsOf: url) else { return }
+            // for updating interface using the main thread
+            DispatchQueue.main.async {
+                self.image = UIImage(data: imageData)
+            }
+            
+        }
     }
-
 }
